@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :admins
+  devise_for :admins, skip: [:registrations]
   devise_for :users
   resources :courses
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -13,5 +13,12 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   # Defines the root path route ("/")
+
+  authenticated :admin_user do
+    root "admin#index", as: :admin_root
+  end
+
+  get "admin", to: "admin#index"
+
   root "courses#index"
 end

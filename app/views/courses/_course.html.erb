@@ -1,6 +1,14 @@
 <div id="<%= dom_id course %>" class="max-w-sm rounded-b overflow-hidden shadow-lg hover:bg-voodoo-100">
   <%= link_to course, class: "flex flex-col h-full" do%>
-    <%= image_tag "https://placehold.co/300" %>
+    
+    
+    <% if course.image.present? %>
+      <%= image_tag course.image, class: "w-full rounded-t mb-6" %>
+    <% else %>
+      <%= image_tag "https://placehold.co/300" %>
+    <% end %>
+    
+    
 
     <div class="px-6 py-4 flex flex-col justify-between grow">
       <div>

@@ -8,7 +8,7 @@
             <div class="p-4">
                 <% if user_signed_in? %>
                     <p class="text-gray-700 text-base mb-4">Start learning today! all about the world of animation.</p>
-                    <%= link_to "Start Course", course_lesson_path(@course, @course.lessons.first), class: "bg-revolver-600 hover:bg-revolver-700 font-bold text-white-50 px-4 py-2 rounded focus:outline-none focus:shadow-outline w-full transition ease-in-out duration-150" %>
+                    <%= link_to "Start Course", course_lesson_path(@course, @course.first_lesson), class: "bg-revolver-600 hover:bg-revolver-700 font-bold text-white-50 px-4 py-2 rounded focus:outline-none focus:shadow-outline w-full transition ease-in-out duration-150" %>
                 <% else %>
                     <p class="text-gray-700 text-base mb-4">Sign up now! and start learning.</p>
                     <%= link_to "Sign up", new_user_registration_path, class: "bg-revolver-600 hover:bg-revolver-700 font-bold text-white-50 px-4 py-2 rounded focus:outline-none focus:shadow-outline w-full transition ease-in-out duration-150" %>

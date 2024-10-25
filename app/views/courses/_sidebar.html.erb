@@ -1,0 +1,37 @@
+<div class="flex flex-col lg:pl-6">
+    <div class="mt-6 lg:mt-0 flex flex-col justify-center items-center w-full">
+        <div class="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="bg-amaranth-500 p-4">
+                <h2 class="text-2xl font-bold text-white-50">Start learning</h1>
+            </div>
+
+            <div class="p-4">
+                <% if user_signed_in? %>
+                    <p class="text-gray-700 text-base mb-4">Start learning today! all about the world of animation.</p>
+                    <%= link_to "Start Course", course_lesson_path(@course, @course.lessons.first), class: "bg-revolver-600 hover:bg-revolver-700 font-bold text-white-50 px-4 py-2 rounded focus:outline-none focus:shadow-outline w-full transition ease-in-out duration-150" %>
+                <% else %>
+                    <p class="text-gray-700 text-base mb-4">Sign up now! and start learning.</p>
+                    <%= link_to "Sign up", new_user_registration_path, class: "bg-revolver-600 hover:bg-revolver-700 font-bold text-white-50 px-4 py-2 rounded focus:outline-none focus:shadow-outline w-full transition ease-in-out duration-150" %>
+                <% end %>
+            </div>
+        </div>
+
+        <% if @course.paid %>
+            <div class="w-full bg-white shadow-lg rounded-lg mt-4 overflow-hidden">
+                <div class="bg-amaranth-500 p-4">
+                    <h2 class="text-2xl font-bold text-white-50">Get more content</h2>
+                </div>
+                <div class="p-4">
+                    
+                    <% if user_signed_in? %>
+                        <p class="text-base text-gray-700 mb-2">Unlock more content by purchasing the full course</p>
+                        <%= button_to "Unlock Now", "#" , class: "bg-revolver-600 text-white-50 font-bold hover:bg-revolver-700 focus:outline-none focus:shadow-outline px-4 py-2 rounded transition ease-in-out duration-150"%>
+                    <% else %>
+                        <p class="text-gray-700 text-base mb-4">Unlock more content by signing up niw.</p>
+                        <%= link_to "Sign up", new_user_registration_path, class: "bg-revolver-600 hover:bg-revolver-700 font-bold text-white-50 px-4 py-2 rounded focus:outline-none focus:shadow-outline w-full transition ease-in-out duration-150" %>
+                    <% end %>
+                </div>
+            </div>    
+        <% end %>
+    </div>
+</div>

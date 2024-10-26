@@ -1,0 +1,50 @@
+<header class="hidden sm:flex w-full justify-center items-center text-gray-700 px-5 py-6">
+    <div class="container mx-auto flex justify-between items-center">
+        <div class="flex">
+            <%= link_to "Courses", root_path, class: "hover:bg-amaranth-500 hover:text-white-50 px-4 py-2 rounded"%>
+        </div>
+        <div>
+            <%= link_to root_path do %>
+                <%= image_tag "logo.png", class: "h-10" %>
+            <% end %>
+        </div>
+        <div class="flex">
+            <% if user_signed_in? %>
+                <%= link_to "Sign_out", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "hover:bg-amaranth-500 hover:text-white-50 rounded px-4 py-2" %>
+                <%= link_to icon('fa-solid', 'user-circle'), edit_user_registration_path, class: "hover:bg-amaranth-500 hover:text-white-50 rounded px-4 py-2 text-center" %>    
+            <% else %>
+                <%= link_to "Sign_in", new_user_session_path, class: "hover:bg-amaranth-500 hover:text-white-50 rounded px-4 py-2" %>
+            <% end %>
+        </div>
+    </div>
+</header>
+
+<header data-controller="navbar" class="sm:hidden bg-amaranth-500 text-white-50 w-full py-4 px-5">
+    <div class="flex justify-between items-center">
+        <div>
+            <%= link_to root_path do %>
+                <%= image_tag "logo.png", class: "h-10 bg-white-50 rounded-3xl hover:rounded-2xl" %>
+            <% end %>
+        </div>
+        <div>
+            <button data-action="click->navbar#toggle" id="bars" type="button" class="w-full flex justify-end items-center">
+                <%= icon('fa-solid', 'bars') %>
+            </button>
+            <button data-action="click->navbar#toggle" id="close" type="button" class="hidden flex w-full justify-end items-center">
+                <%= icon('fa-solid', 'x') %>
+            </button>
+        </div>
+    </div>
+
+    <div id="mobile-links" class="hidden border-t-2 mt-2 border-amaranth-400 flex flex-col justify-center items-center">
+        <div class="mt-4">
+            <%= link_to "Courses", root_path, class: "hover:bg-amaranth-700 hover:text-white-50 px-4 py-2 rounded"%>
+        </div>
+        <% if user_signed_in? %>
+            <%= link_to "Sign_out", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "hover:bg-amaranth-700 hover:text-white-50 rounded px-4 py-2" %>
+            <%= link_to icon('fa-solid', 'user-circle'), edit_user_registration_path, class: "hover:bg-amaranth-700 hover:text-white-50 rounded px-4 py-2 text-center" %>    
+        <% else %>
+            <%= link_to "Sign_in", new_user_session_path, class: "hover:bg-amaranth-700 hover:text-white-50 rounded px-4 py-2" %>
+        <% end %>
+    </div>
+</header>

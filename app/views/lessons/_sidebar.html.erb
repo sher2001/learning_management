@@ -9,7 +9,12 @@
         <% else %>
             <%= link_to course_lesson_path(@course, lesson) do %>
                 <div class="border p-6 hover:bg-gray-200 <%= (@lesson.id == lesson.id) ? 'bg-amaranth-100' : '' %>">
-                    <span class="font-light"><%= lesson.title %></span>
+                    <% if @completed_lesson_ids&.include?(lesson.id) %>
+                        <%= icon('fa-solid', 'circle-check', class: "text-green-500") %>
+                    <% else %>
+                        <%= icon('fa-regular', 'circle', class: "text-green-500") %>
+                    <% end %>
+                    <span class="pl-4 font-light"><%= lesson.title %></span>
                 </div>
             <% end %>
         <% end %>

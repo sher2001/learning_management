@@ -34,9 +34,14 @@
                 <div class="p-4">
                     <% if user_signed_in? %>
                         <p class="text-base text-gray-700 mb-2">Unlock more content by purchasing the full course</p>
-                        <%= button_to "Unlock Now", "#" , class: "bg-revolver-600 text-white-50 font-bold hover:bg-revolver-700 focus:outline-none focus:shadow-outline px-4 py-2 rounded transition ease-in-out duration-150"%>
+
+                        <%= form_tag checkouts_path(@course), method: :post, data: {turbo: false}, class: "mt-4" do %>
+                            <%= hidden_field_tag :course_id, @course.id %>
+                            <%= hidden_field_tag :stripeEmail, current_user.email %>
+                            <%= button_tag "Unlock Now", class: "bg-revolver-600 text-white-50 font-bold hover:bg-revolver-700 focus:outline-none focus:shadow-outline px-4 py-2 rounded transition ease-in-out duration-150"%>
+                        <% end %>
                     <% else %>
-                        <p class="text-gray-700 text-base mb-4">Unlock more content by signing up niw.</p>
+                        <p class="text-gray-700 text-base mb-4">Unlock more content by signing up now.</p>
                         <%= link_to "Sign up", new_user_registration_path, class: "bg-revolver-600 hover:bg-revolver-700 font-bold text-white-50 px-4 py-2 rounded focus:outline-none focus:shadow-outline w-full transition ease-in-out duration-150" %>
                     <% end %>
                 </div>

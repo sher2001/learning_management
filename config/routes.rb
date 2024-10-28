@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     root "admin#index", as: :admin_root
   end
 
+  resources :checkouts, only: [ :create ]
+
   get "admin", to: "admin#index"
 
   root "courses#index"

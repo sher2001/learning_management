@@ -1,24 +1,53 @@
-# README
+# Learning Management System
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A comprehensive Learning Management System (LMS) built with Ruby on Rails, designed to streamline course management, user tracking, and educational content delivery.
 
-Things you may want to cover:
+## Table of Contents
+1. [Features](#features)
+2. [Getting Started](#getting-started)
+3. [Installation](#installation)
+4. [Usage](#usage)
 
-* Ruby version
+## Features
+* **Course Management**: Add, update, and delete courses.
+* **User Enrollment**: Enroll or remove Users from courses.
+* **User Authentication**: Role-based access control for admin, teachers, and students.
+* **Analytics**: Dashboard with progress tracking and reports.
 
-* System dependencies
+## Getting Started
+To run this LMS on your local machine, follow the installation instructions below.
 
-* Configuration
+### Prerequisites
+* Ruby latest
+* Rails latest
+* Database setup SQLite
 
-* Database creation
+## Installation
+1. Clone this repository:
+```bash
+git clone https://github.com/sher2001/learning_management.git
+cd learning_management
+```
 
-* Database initialization
+2. Install the dependencies:
+```bash
+bundle install
+```
 
-* How to run the test suite
+3. Set up the database:
+```bash
+rails db:create
+rails db:migrate
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+4. Start the Rails server:
+```bash
+rails server
+```
 
-* Deployment instructions
+5. Access the application in your browser at `http://localhost:3000`.
 
-* ...
+## Usage
+Once the server is running, you can:
+* **Admin**: Create and manage courses and users.
+* **Users**: Can access courses

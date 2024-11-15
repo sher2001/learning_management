@@ -62,4 +62,4 @@ gem "font-awesome-sass", "~> 6.5.2"
 
 gem "devise", "~> 4.9"
 
-gem "stripe", "~> 13.0"
+gem "stripe", "~> 13.1"
